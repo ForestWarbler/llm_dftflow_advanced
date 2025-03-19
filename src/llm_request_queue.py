@@ -10,6 +10,7 @@ class LLMRequestQueue:
         self._queue = deque()
         self._op_num = op_num
 
+
     def set_op_num(self, op_num: int):
         """
         手动设置 op_num
@@ -19,12 +20,14 @@ class LLMRequestQueue:
             raise ValueError("op_num 必须大于 0")
         self._op_num = op_num
 
+
     def get_op_num(self) -> int:
         """
         获取当前的 op_num
         :return: op_num
         """
         return self._op_num
+
 
     def add_requests_in_batch(self, requests):
         """
@@ -34,12 +37,14 @@ class LLMRequestQueue:
         for req in requests:
             self._queue.append(req)
 
+
     def add_request(self, request):
         """
         添加单个 LLMRequest
         :param request: LLMRequest 实例
         """
         self._queue.append(request)
+
 
     def get_next_batch(self):
         """
@@ -50,6 +55,7 @@ class LLMRequestQueue:
         for _ in range(min(self._op_num, len(self._queue))):
             batch.append(self._queue.popleft())
         return batch
+
 
     def get_total_tasks(self) -> int:
         """

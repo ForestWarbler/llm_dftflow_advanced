@@ -41,14 +41,13 @@ class Payload:
         self._payload = {
             "model": self._model,
             "messages": [
-                {"role": "user",
-                 "content": f"Analyze the following logs and provide insights or errors if any:\n{log_data}"},
+                {"role": "user", "content": f"Analyze the following logs and provide insights or errors if any:\n{log_data}"},
                 {"role": "user", "content": "Based on the provided log lines, suggest possible errors or improvements."},
                 {"role": "user", "content": f"Response Template:\n{template}"}
             ],
-            "temperature": 0 if self._temperature is None else self._temperature,
-            "top_p": 1 if self._top_p is None else self._top_p,
-            "max_tokens": 128000 if self._max_tokens is None else self._max_tokens,
-            "stream": False if self._stream is None else self._stream
+            "temperature": 0,  # 保持确定性
+            "top_p": 1,        # 覆盖完整概率空间
+            "max_tokens": 128000,  # 允许更长的返回内容
+            "stream": False
         }
         return self._payload

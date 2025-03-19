@@ -19,6 +19,9 @@ class LLMCommunicator:
         headers = {
             "Content-Type": "application/json"
         }
+
+        print(payload)
+
         try:
             # 发送 POST 请求给 LLM 服务
             response = requests.post(self._url, json=payload, headers=headers)

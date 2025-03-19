@@ -14,7 +14,7 @@ class LLMCommunicator:
     def send_to_llm(self):
         # 从 request 对象中获取 payload
         to_module = self._request.get_to_module()
-        payload = self._request.get_payload()
+        payload = self._request.get_payload().get_payload()
         # 构造请求数据，包含模型和 payload
         headers = {
             "Content-Type": "application/json"

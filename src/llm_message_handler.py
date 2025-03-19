@@ -1,20 +1,15 @@
 from llm_request import LLMRequest
-from llm_request_queue import LLMQueue
+from llm_response import LLMResponse
+import json
 
 
 class LLMMessageHandler:
-    def __init__(self):
-        self.module_queues = {}
+    def __init__(self, response):
+        self._response = response
 
 
-    def register_module_queue(self, module_name: str, queue: LLMQueue):
-        self.module_queues[module_name] = queue
+    def handle_message(self, message):
+        to_module = self._response.get_to_module()
+        match to_module:
+            case "": pass
 
-
-    def handle_message(self, request: LLMRequest, response):
-        module_name = request.to_module
-        if module_name in self.module_queues:
-            self.module_queues[module_name].enqueue((request, response))
-            print(f"Message for module '{module_name}' handled and enqueued.")
-        else:
-            print(f"Warning: No queue registered for module '{module_name}'. Message not handled.")

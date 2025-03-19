@@ -5,7 +5,7 @@ if __name__ == '__main__':
     with open('./Test_spin/yh.log', 'r', encoding='utf-8') as f:
         log_data = f.read()
 
-    with open('./emplate_test.txt', 'r', encoding='utf-8') as f:
+    with open('./template_test.txt', 'r', encoding='utf-8') as f:
         template = f.read()
 
     test = LLMModule()

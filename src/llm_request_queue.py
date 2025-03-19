@@ -78,8 +78,8 @@ class LLMRequestQueue:
         payload.set_top_p(self._top_p)
         payload.set_max_tokens(self._max_tokens)
         payload.set_stream(self._stream)
-        payload.set_messages(log_data, template)
-        payload.setup_payload()
+        # payload.set_messages(log_data, template)
+        payload.setup_payload(log_data, template)
         return payload
 
 

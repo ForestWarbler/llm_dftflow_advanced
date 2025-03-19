@@ -6,10 +6,14 @@ from llm_communicator import *
 from llm_message_handler import *
 
 class LLMModule:
-    def __init__(self, queue_op_num = 5, url = None, model = None):
+    def __init__(self, queue_op_num = 5, url = None, model = None, temperature = 0, top_p = 1, max_tokens = 128000, stream = False):
         self._queue_op_num = queue_op_num
         self._url = url
         self._model = model
+        self._temperature = temperature
+        self._top_p = top_p
+        self._max_tokens = max_tokens
+        self._stream = stream
         self._llm_request_queue = None
         self._llm_communicator = None
         self._llm_message_handler = None
@@ -57,7 +61,44 @@ class LLMModule:
         self._model = new_model
 
 
-    def run(self):
-        while self.check_all():
-            pass
+    def set_temperature(self, new_temperature):
+        self._temperature = new_temperature
 
+
+    def set_top_p(self, new_top_p):
+        self._top_p = new_top_p
+
+
+    def set_max_tokens(self, new_max_tokens):
+        self._max_tokens = new_max_tokens
+
+
+    def set_stream(self, new_stream):
+        self._stream = new_stream
+
+
+    def set_llm_request_queue(self):
+        self._llm_request_queue = LLMRequestQueue(self._queue_op_num, self._model, self._temperature, self._top_p, self._max_tokens, self._stream)
+
+
+    def set_llm_communicator(self, request):
+        self._llm_communicator = LLMCommunicator(self._url, self._model, request)
+
+
+    def set_llm_message_handler(self, response):
+        self._llm_message_handler = LLMMessageHandler(response)
+
+
+
+    def run(self):
+        pass
+
+
+    def test_run(self, log_data, template, from_module, to_module):
+        self.set_llm_request_queue()
+        self._llm_request_queue.append_queue(log_data, template, from_module, to_module)
+        batch = self._llm_request_queue.get_next_batch()
+        for job in batch:
+            self.set_llm_communicator(job)
+            self.set_llm_message_handler(self._llm_communicator.run())
+            self._llm_message_handler.handle_message()

@@ -11,8 +11,13 @@ class Payload:
     def set_model(self, model):
         self._model = model
 
-    def set_messages(self, messages):
-        self._messages = messages
+    def set_messages(self, log_data, template):
+        self._messages = [
+            {"role": "user",
+             "content": f"Analyze the following logs and provide insights or errors if any:\n{log_data}"},
+            {"role": "user", "content": "Based on the provided log lines, suggest possible errors or improvements."},
+            {"role": "user", "content": f"Response Template:\n{template}"}
+        ]
 
     def set_temperature(self, temperature):
         self._temperature = temperature

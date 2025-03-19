@@ -8,8 +8,9 @@ class LLMMessageHandler:
         self._response = response
 
 
-    def handle_message(self, message):
+    def handle_message(self):
         to_module = self._response.get_to_module()
-        match to_module:
-            case "": pass
+        print(self._response.get_response())
+        # match to_module:
+        #     case '': pass
 

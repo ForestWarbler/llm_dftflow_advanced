@@ -1,14 +1,20 @@
 from collections import deque
+from src.payload import Payload
 from src.llm_request import LLMRequest
 
 class LLMRequestQueue:
-    def __init__(self, op_num=5):
+    def __init__(self, op_num=5, model = None, temperature = 0, top_p = 1, max_tokens = 128000, stream = False):
         """
         初始化队列
         :param op_num: 每次按批操作时处理的请求数量
         """
         self._queue = deque()
         self._op_num = op_num
+        self._model = model
+        self._temperature = temperature
+        self._top_p = top_p
+        self._max_tokens = max_tokens
+        self._stream = stream
 
 
     def set_op_num(self, op_num: int):
@@ -63,6 +69,27 @@ class LLMRequestQueue:
         :return: 队列的长度
         """
         return len(self._queue)
+
+
+    def create_payload(self, log_data, template):
+        payload = Payload()
+        payload.set_model(self._model)
+        payload.set_temperature(self._temperature)
+        payload.set_top_p(self._top_p)
+        payload.set_max_tokens(self._max_tokens)
+        payload.set_stream(self._stream)
+        payload.set_messages(log_data, template)
+        payload.setup_payload()
+        return payload
+
+
+    def create_request(self, payload, from_module, to_module):
+        request = LLMRequest(payload, from_module, to_module)
+        return request
+
+
+    def append_queue(self, log_data, template, from_module, to_module):
+        self.add_request(self.create_request(self.create_payload(log_data, template), from_module, to_module))
 
 # =============== 使用示例 ===============
 

@@ -16,6 +16,6 @@ if __name__ == '__main__':
 
     test = LLMModule()
     test.set_url('http://172.16.31.129:11434/api/chat')
-    test.set_model('llama3.3:latest')
+    test.set_model('deepseek-r1-m:671b')
 
     test.test_run(log_data, template, 'Test', 'None')

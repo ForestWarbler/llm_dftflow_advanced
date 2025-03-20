@@ -1,16 +1,5 @@
-import psutil
 import time
 
-
-def count_idle_cores(threshold=20, interval=1):
-    """
-    采样 interval 秒内的 CPU 使用率，返回空闲核心的数量
-    (空闲定义为该核心使用率低于 threshold%)
-    """
-    # 采样每个核心的使用率，interval 表示采样时长（单位秒）
-    cpu_percentages = psutil.cpu_percent(interval=interval, percpu=True)
-    # 统计使用率低于阈值的核心数量
-    idle_count = sum(1 for percent in import time
 
 def read_cpu_times():
     """
@@ -27,6 +16,7 @@ def read_cpu_times():
                 times = list(map(int, parts[1:]))
                 cpu_times[cpu_label] = times
     return cpu_times
+
 
 def calculate_cpu_usage(prev, curr):
     """
@@ -53,6 +43,7 @@ def calculate_cpu_usage(prev, curr):
             usage[cpu] = cpu_usage
     return usage
 
+
 def count_idle_cores(threshold=20, interval=1):
     """
     根据采样 interval 秒内计算出的使用率，统计空闲核心数量
@@ -66,21 +57,11 @@ def count_idle_cores(threshold=20, interval=1):
     idle_count = sum(1 for cpu, percent in usage.items() if percent < threshold)
     return idle_count, usage
 
+
 if __name__ == "__main__":
     threshold = 20  # 使用率低于20%认为空闲
     idle_cores, cpu_usage = count_idle_cores(threshold=threshold, interval=1)
     print("各 CPU 核心使用率:")
     for cpu, usage_percent in cpu_usage.items():
         print(f"  {cpu}: {usage_percent:.2f}%")
-    print(f"空闲核心数（使用率低于 {threshold}%）：{idle_cores}")cpu_percentages if percent < threshold)
-
-    return idle_count, cpu_percentages
-
-
-if __name__ == "__main__":
-    # 设定空闲阈值为5%
-    threshold = 5
-    idle_cores, cpu_usage = count_idle_cores(threshold=threshold, interval=1)
-
-    print("各 CPU 核心使用率:", cpu_usage)
-    print(f"空闲核心数（使用率低于 {threshold}%）: {idle_cores}")
+    print(f"空闲核心数（使用率低于 {threshold}%）：{idle_cores}")

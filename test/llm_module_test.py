@@ -8,6 +8,12 @@ if __name__ == '__main__':
     with open('./template_test.txt', 'r', encoding='utf-8') as f:
         template = f.read()
 
+    print("==== log_data ====")
+    print(log_data)
+    print("")
+    print("==== template ====")
+    print(template)
+
     test = LLMModule()
     test.set_url('http://172.16.31.129:11434/api/chat')
     test.set_model('llama3.3:latest')

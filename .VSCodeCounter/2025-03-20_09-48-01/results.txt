@@ -1,0 +1,56 @@
+Date : 2025-03-20 09:48:01
+Directory : /Users/warblerforest/Projects/LabStuff/llm_dft/llm_dftflow_advanced
+Total : 24 files,  408 codes, 39 comments, 144 blanks, all 591 lines
+
+Languages
++----------+------------+------------+------------+------------+------------+
+| language | files      | code       | comment    | blank      | total      |
++----------+------------+------------+------------+------------+------------+
+| Python   |         18 |        372 |         39 |        144 |        555 |
+| XML      |          5 |         35 |          0 |          0 |         35 |
+| Markdown |          1 |          1 |          0 |          0 |          1 |
++----------+------------+------------+------------+------------+------------+
+
+Directories
++--------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                               | files      | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                                  |         24 |        408 |         39 |        144 |        591 |
+| . (Files)                                                                                                          |          3 |          3 |         10 |          1 |         14 |
+| .idea                                                                                                              |          5 |         35 |          0 |          0 |         35 |
+| .idea (Files)                                                                                                      |          4 |         29 |          0 |          0 |         29 |
+| .idea/inspectionProfiles                                                                                           |          1 |          6 |          0 |          0 |          6 |
+| src                                                                                                                |         14 |        355 |         28 |        137 |        520 |
+| test                                                                                                               |          2 |         15 |          1 |          6 |         22 |
++--------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++--------------------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| filename                                                                                                           | language | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| /Users/warblerforest/Projects/LabStuff/llm_dft/llm_dftflow_advanced/.idea/inspectionProfiles/profiles_settings.xml | XML      |          6 |          0 |          0 |          6 |
+| /Users/warblerforest/Projects/LabStuff/llm_dft/llm_dftflow_advanced/.idea/llm_dftflow_advanced.iml                 | XML      |          8 |          0 |          0 |          8 |
+| /Users/warblerforest/Projects/LabStuff/llm_dft/llm_dftflow_advanced/.idea/misc.xml                                 | XML      |          7 |          0 |          0 |          7 |
+| /Users/warblerforest/Projects/LabStuff/llm_dft/llm_dftflow_advanced/.idea/modules.xml                              | XML      |          8 |          0 |          0 |          8 |
+| /Users/warblerforest/Projects/LabStuff/llm_dft/llm_dftflow_advanced/.idea/vcs.xml                                  | XML      |          6 |          0 |          0 |          6 |
+| /Users/warblerforest/Projects/LabStuff/llm_dft/llm_dftflow_advanced/README.md                                      | Markdown |          1 |          0 |          0 |          1 |
+| /Users/warblerforest/Projects/LabStuff/llm_dft/llm_dftflow_advanced/dftllmrd.py                                    | Python   |          0 |          0 |          1 |          1 |
+| /Users/warblerforest/Projects/LabStuff/llm_dft/llm_dftflow_advanced/main.py                                        | Python   |          2 |         10 |          0 |         12 |
+| /Users/warblerforest/Projects/LabStuff/llm_dft/llm_dftflow_advanced/src/__init__.py                                | Python   |          0 |          0 |          1 |          1 |
+| /Users/warblerforest/Projects/LabStuff/llm_dft/llm_dftflow_advanced/src/jobclass.py                                | Python   |         17 |          0 |          6 |         23 |
+| /Users/warblerforest/Projects/LabStuff/llm_dft/llm_dftflow_advanced/src/jobpool.py                                 | Python   |         12 |          0 |          5 |         17 |
+| /Users/warblerforest/Projects/LabStuff/llm_dft/llm_dftflow_advanced/src/llm_communicator.py                        | Python   |         29 |          5 |          6 |         40 |
+| /Users/warblerforest/Projects/LabStuff/llm_dft/llm_dftflow_advanced/src/llm_message_handler.py                     | Python   |          9 |          2 |          6 |         17 |
+| /Users/warblerforest/Projects/LabStuff/llm_dft/llm_dftflow_advanced/src/llm_module.py                              | Python   |         64 |          0 |         41 |        105 |
+| /Users/warblerforest/Projects/LabStuff/llm_dft/llm_dftflow_advanced/src/llm_request.py                             | Python   |         16 |          0 |         11 |         27 |
+| /Users/warblerforest/Projects/LabStuff/llm_dft/llm_dftflow_advanced/src/llm_request_queue.py                       | Python   |         92 |          7 |         29 |        128 |
+| /Users/warblerforest/Projects/LabStuff/llm_dft/llm_dftflow_advanced/src/llm_response.py                            | Python   |          8 |          0 |          2 |         10 |
+| /Users/warblerforest/Projects/LabStuff/llm_dft/llm_dftflow_advanced/src/log_monitor.py                             | Python   |         66 |         12 |         11 |         89 |
+| /Users/warblerforest/Projects/LabStuff/llm_dft/llm_dftflow_advanced/src/manager.py                                 | Python   |          0 |          0 |          1 |          1 |
+| /Users/warblerforest/Projects/LabStuff/llm_dft/llm_dftflow_advanced/src/master_communicator.py                     | Python   |          0 |          0 |          1 |          1 |
+| /Users/warblerforest/Projects/LabStuff/llm_dft/llm_dftflow_advanced/src/node_communicator.py                       | Python   |          0 |          0 |          1 |          1 |
+| /Users/warblerforest/Projects/LabStuff/llm_dft/llm_dftflow_advanced/src/payload.py                                 | Python   |         42 |          2 |         16 |         60 |
+| /Users/warblerforest/Projects/LabStuff/llm_dft/llm_dftflow_advanced/test/__init__.py                               | Python   |          0 |          0 |          1 |          1 |
+| /Users/warblerforest/Projects/LabStuff/llm_dft/llm_dftflow_advanced/test/llm_module_test.py                        | Python   |         15 |          1 |          5 |         21 |
+| Total                                                                                                              |          |        408 |         39 |        144 |        591 |
++--------------------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
